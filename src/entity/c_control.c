@@ -29,6 +29,13 @@ static void tick(struct ControlComponent *c_control, struct Entity entity) {
     c_movement->directions.up = state.window->keyboard.keys[GLFW_KEY_SPACE].down;
     c_movement->directions.down = state.window->keyboard.keys[GLFW_KEY_LEFT_SHIFT].down;
 
+    if(state.window->keyboard.keys[GLFW_KEY_LEFT_CONTROL].down == true) {
+        c_movement->speed = 2.0;
+    }
+    else {
+        c_movement->speed = 1.0;
+    }
+
     if (state.window->keyboard.keys[GLFW_KEY_K].pressed_tick) {
         c_movement->flags.flying = !c_movement->flags.flying;
     }
